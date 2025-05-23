@@ -1,0 +1,23 @@
+GET http://localhost:5000
+
+####
+POST http://localhost:5000/api/user/register
+Content-Type: application/json
+
+{
+    "name": "Dung",
+    "email": "dung@gmail.com",
+    "password": "DungDepTrai"
+}
+
+####
+POST http://localhost:5000/api/user/login
+Content-Type: application/json
+
+{
+    "email": "dung@gmail.com",
+    "password": "DungDepTrai"
+}
+
+####
+GET http://localhost:5000/api/user/is-auth
