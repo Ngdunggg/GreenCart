@@ -34,18 +34,33 @@ const ProductCard = ({ product }) => {
                         {!cartItems[product._id] ? (
                             <button 
                                 className="flex items-center justify-center gap-1 bg-primary/10 border border-primary/40 md:w-[80px] w-[64px] h-[34px] rounded-4xl cursor-pointer"
-                                onClick={() => addToCart(product._id)} 
+                                onClick={(e) => {
+                                    e.stopPropagation()
+                                    addToCart(product._id)
+                                }} 
                             >
                                 <img src={assets.cart_icon}  alt="cart_icon"/>
                                 Add
                             </button>
                         ) : (
                             <div className="flex items-center justify-center gap-2 md:w-20 w-16 h-[34px] bg-primary/40 rounded select-none">
-                                <button onClick={() => {removeCartItem(product._id)}} className="cursor-pointer text-md px-2 h-full" >
+                                <button 
+                                    onClick={(e) => { 
+                                        e.stopPropagation()
+                                        removeCartItem(product._id)
+                                    }} 
+                                    className="cursor-pointer text-md px-2 h-full" 
+                                >
                                     -
                                 </button>
                                 <span className="w-5 text-center">{cartItems[product._id]}</span>
-                                <button onClick={() => {addToCart(product._id)}} className="cursor-pointer text-md px-2 h-full" >
+                                <button 
+                                    onClick={(e) => {
+                                        e.stopPropagation()
+                                        addToCart(product._id)
+                                    }}
+                                    className="cursor-pointer text-md px-2 h-full" 
+                                >
                                     +
                                 </button>
                             </div>

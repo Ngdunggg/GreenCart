@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 5000
 await connectDB()
 await connectCloudinary()
 
-const allowOrigins = ['http://localhost:5173']
+const allowOrigins = ['http://localhost:5173', 'https://green-cart-backend-mocha.vercel.app']
 
 app.post('/stripe', express.raw({type: "application/json"}), stripeWebhooks)
 
